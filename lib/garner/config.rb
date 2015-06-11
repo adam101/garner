@@ -61,7 +61,7 @@ module Garner
     #
     # @return [Cache] The default cache store instance.
     def default_cache
-      if defined?(Rails) && Rails.respond_to?(:cache)
+      if defined?(Rails) && Rails.respond_to?(:cache) && !Rails.cache.nil?
         Rails.cache
       else
         ::ActiveSupport::Cache::MemoryStore.new
